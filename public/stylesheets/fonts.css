@@ -1,0 +1,30 @@
+/* Fonts */
+html, body {
+    font-family: 'century schoolbook l', baskerville, palatino, georgia, serif;
+    font-size:14px;
+    line-height:1em;
+}
+
+h1 {
+    font-size:2em;
+}
+
+h2 {
+    font-size:1.5em;
+}
+
+h3 {
+    font-size:1.15em;
+}
+
+h1, h2, h3, h4, h5, h6, h7 {
+    font-weight: normal;
+}
+
+p, span, strong, ul, li {
+    font-family:verdana, sans serif;
+    font-size:1em;
+}
+
+/**/
+

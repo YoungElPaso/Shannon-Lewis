@@ -1,0 +1,25 @@
+/* Colors & Theme Images */
+html, body {
+    background: #fff;
+}
+
+#container {
+    /*background: #efefef url(/images/container_bg.jpg) 50% 25% no-repeat;*/
+}
+
+h1, h2, h3, h4, h5, h6, h7, p, span, strong {
+    color: #040506;
+}
+
+#header, #footer {
+    background: #aaa;
+}
+
+#contact {
+    background: #040506;
+}
+
+#contact h2, #contact p {
+    color:#fff;
+}
+

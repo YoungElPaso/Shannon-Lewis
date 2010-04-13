@@ -1,0 +1,92 @@
+/**
+    Basic Style Sheet, divided into 3 Sections: Fonts, Colors & Theme Images, Layouts
+    Jesse Sutherland Feb 26 2010
+**/
+/**/
+/* Layouts */
+* {
+    margin:0;
+    padding:0;
+}
+
+html {
+    height:100%; /* baf */
+}
+
+html, body {
+    width: 100%;
+    text-align:center;
+}
+
+body {
+    height:100%; /* baf */
+}
+
+#container {
+    position:relative;
+    margin:0 auto;
+    width: 90%;
+    max-width:900px;
+    min-height:100%; /* baf */
+    text-align:left;
+}
+
+#header {
+    padding:1em 0 0 0;
+    height: 6em;
+}
+
+#footer {
+    position:absolute; /* bottom anchord footer (baf)*/
+    bottom:0; /* baf */
+    /*width:100%; /* baf */
+    height:4em;
+    padding:0.5em;
+}
+
+#picture_frame {
+    margin:0.5em;
+    height:30em;
+    background:#555;
+}
+
+.panel_content {
+    background:#888;
+}
+
+#contact {
+    margin:3em 0 0 0;
+    height:10em;
+}
+
+.footer_spacer {
+    margin:0 0 5em 0; /* bottom margin matches height of footer */
+}
+
+.matte {
+    padding:0.5em;
+}
+
+.hidden {
+    display:none;
+}
+
+ul, li {
+    list-style-type:none;
+}
+
+.panel_menu {
+    float:left;
+    margin:20px 0 0 20px;
+}
+
+.panel_menu li {
+    float:left;
+    margin:0 10px 0 0;
+}
+
+
+.sparkle {
+ background:#ff0;
+}
+

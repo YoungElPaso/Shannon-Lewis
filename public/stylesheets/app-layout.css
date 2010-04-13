@@ -1,0 +1,142 @@
+/**
+    App Layout Style Sheet
+    Jesse Sutherland April 12 2010
+**/
+/**/
+/* Layouts */
+* {
+    margin:0;
+    padding:0;
+}
+
+html {
+    height:100%; /* baf */
+}
+
+html, body {
+    width: 100%;
+    text-align:center;
+}
+
+body {
+    height:100%; /* baf */
+}
+
+#container {
+    position:relative;
+    margin:0 auto;
+    width: 90%;
+    max-width:900px;
+    min-height:100%; /* baf */
+    text-align:left;
+}
+
+#header {
+    padding:1em 0 0 0;
+    height: 6em;
+}
+
+#footer {
+    position:absolute; /* bottom anchord footer (baf)*/
+    bottom:0; /* baf */
+    /*width:100%; /* baf */
+    height:4em;
+    padding:0.5em;
+}
+
+#picture_frame {
+    margin:0;
+    height:30em;
+    background:#555;
+}
+
+.panel_content {
+    background:#888;
+}
+
+#indicators {
+    float:left;
+    clear:both;
+    width:100%;
+    border:2px #foo solid;
+}
+
+.indicator {
+    float:left;
+    width:10%;
+}
+
+.item {
+    position:relative;
+    width:100%;
+    height:100%;
+}
+
+.item .cntrl {
+    float:left;
+    background:#efefef;
+    width:3em;
+    height:3em;
+    line-height:3em;
+    text-align:center;
+}
+
+.item .cntrl.right {
+    float:right;
+}
+
+.item #loading_mask {
+    position:absolute;
+    left:10%;
+    top:10%;
+    width:80%;
+    height:80%;
+    background:#fff;
+    display:none;
+}
+
+.item img#showcase {
+    width:100%;
+    height:50%;
+}
+
+.item #img_caption {
+    display:block;
+}
+
+#contact {
+    margin:3em 0 0 0;
+    height:10em;
+}
+
+.footer_spacer {
+    margin:0 0 5em 0; /* bottom margin matches height of footer */
+}
+
+.matte {
+    padding:0.5em;
+}
+
+.hidden {
+    display:none;
+}
+
+ul, li {
+    list-style-type:none;
+}
+
+.panel_menu {
+    float:left;
+    margin:1em 0 0 2em;
+}
+
+.panel_menu li {
+    float:left;
+    margin:0 1em 0 0;
+}
+
+
+.sparkle {
+ background:#ff0;
+}
+
