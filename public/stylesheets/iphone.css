@@ -1,0 +1,19 @@
+/*iphone centric layout changes*/
+html, body {
+    height:480px !important;
+    width:320px !important;
+}
+
+#header h1 {
+    color:#f00 !important;
+}
+
+#container {
+    margin:0;
+    width:100%;
+}
+
+#footer {
+    width:100%;
+}
+
