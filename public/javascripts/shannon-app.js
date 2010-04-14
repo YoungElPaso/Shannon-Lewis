@@ -1,5 +1,30 @@
     // <![CDATA[
       $(document).ready(function(){
+        //first thing check platform and load some files if necessary
+        if(navigator.platform == 'iPhone') {
+            console.log('using iphone');
+            $.get('stylesheets/iphone.css', function(data){ //getting us the iphone css
+                if(status == "error") {
+                    console.log('missed some file');
+                }else {
+                var style = '<style>' + data + '</style>';
+                $('head').append(style); //add style to the head element
+                }
+            });
+            doIphoneTouches();
+        }
+        //
+
+        function doIphoneTouches(){
+            //map all control clicks to touchend
+            $('.cntrl').live('touchend', function(){
+                var id = this.getAttribute('id');
+                doCntrls(id);
+            });
+        }
+
+        //
+
         // do some stuff on load, like add some controls, load the images etc
         var btn = $('#con_btn');
         var contact = $('#contact');
