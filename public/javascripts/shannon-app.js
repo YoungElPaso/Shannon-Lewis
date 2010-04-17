@@ -38,7 +38,7 @@
           firstImage = 0;
           currImage = null;
           imgData = null;
-          maxImages = 3;
+          maxImages = 8;
           showCase = null;
           loadingMask = null;
           indicators = null;
@@ -59,10 +59,12 @@
           function doAjax(){
             var dataVar = null;
             $.ajax({
-              url: 'test.json',
+              //url: 'test.json', old url
+              url: 'http://api.flickr.com/services/feeds/photos_public.gne?id=49349226@N02&tags=onsite&format=json&jsoncallback=?',
               dataType: 'json',
               success: function(data){
-                  dataVar = data.data;
+                  //dataVar = data.data; old version
+                  dataVar = data.items;
                   mapVars(dataVar);
                 }
             });
@@ -108,17 +110,20 @@
             loadImage(firstImage, showCase, caption); //load the first image right off the bat
             showCase.bind('load', function(){ //create fx for loading an image - ie some kinda wipe, in ext, this would be put in onrender
               //console.log('loaded an image:' + showCase.attr('src'));
-              loadingMask.fadeOut('fast');
+              //loadingMask.fadeOut('fast');
             });
             makeCntrls();
           }
 
           //loadImage function handles image loading from controls and initialization
           function loadImage(img, showCase, caption){
-            loadingMask.fadeIn('fast'); //show the loading mask until the image is done loading
+            //loadingMask.fadeIn('fast'); //show the loading mask until the image is done loading
             currImage = img; //establish currImage as whatever is fed into loadImage
-            showCase.attr('src', imgData[img].src);//set the src for the showcase
-            caption.text(imgData[img].caption); //set the caption for the given img
+            //showCase.attr('src', imgData[img].src);//set the src for the showcase
+            //caption.text(imgData[img].caption); //set the caption for the given img
+            showCase.attr('src', imgData[img].media.m); //set the src for the showcase
+            console.log(imgData[img].media.m);
+            caption.text(imgData[img].title); //set the caption for the given img
             indicators.trigger('checkData', [img]);//highlight the relevant div showing which img in the series is loaded, checks all indicators at once
           }
 
