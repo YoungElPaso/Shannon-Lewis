@@ -59,12 +59,11 @@
           function doAjax(){
             var dataVar = null;
             $.ajax({
-              //url: 'test.json', old url
-              url: 'http://api.flickr.com/services/feeds/photos_public.gne?id=49349226@N02&tags=onsite&format=json&jsoncallback=?',
+              url: 'http://api.flickr.com/services/rest/?method=flickr.people.getPublicPhotos&api_key=843806734c834810456499372db41a32&user_id=49349226@N02&extras=description,url_m,url_o&per_page=10&page=1&format=json&jsoncallback=?',
               dataType: 'json',
               success: function(data){
                   //dataVar = data.data; old version
-                  dataVar = data.items;
+                  dataVar = data.photos.photo;
                   mapVars(dataVar);
                 }
             });
@@ -121,9 +120,8 @@
             currImage = img; //establish currImage as whatever is fed into loadImage
             //showCase.attr('src', imgData[img].src);//set the src for the showcase
             //caption.text(imgData[img].caption); //set the caption for the given img
-            showCase.attr('src', imgData[img].media.m); //set the src for the showcase
-            console.log(imgData[img].media.m);
-            caption.text(imgData[img].title); //set the caption for the given img
+            showCase.attr('src', imgData[img].url_m); //set the src for the showcase
+            caption.html("<h3>" + imgData[img].title + "</h3>" + imgData[img].description._content); //set the caption for the given img
             indicators.trigger('checkData', [img]);//highlight the relevant div showing which img in the series is loaded, checks all indicators at once
           }
 
