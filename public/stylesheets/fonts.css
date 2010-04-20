@@ -6,7 +6,7 @@ html, body {
 }
 
 h1 {
-    font-size:2em;
+    font-size:2.5em;
 }
 
 h2 {
@@ -21,9 +21,30 @@ h1, h2, h3, h4, h5, h6, h7 {
     font-weight: normal;
 }
 
-p, span, strong, ul, li {
+p, span, strong, ul, li, .cntrl {
     font-family:verdana, sans serif;
     font-size:1em;
+}
+
+a:link, a:active, a:hover, a:visited {
+    text-decoration:none;
+}
+
+a:hover {
+    text-decoration:underline;
+}
+
+.item #loading_mask {
+    font-size:1em;
+    font-weight:bold;
+}
+
+#img_caption h3 {
+    font-family: 'century schoolbook l', baskerville, palatino, georgia, serif;
+}
+
+.cntrl {
+
 }
 
 /**/

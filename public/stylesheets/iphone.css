@@ -1,11 +1,8 @@
 /*iphone centric layout changes*/
 html, body {
-    height:480px !important;
     width:320px !important;
-}
-
-#header h1 {
-    color:#f00 !important;
+    background: #fff;
+    overflow:hidden;
 }
 
 #container {
@@ -13,7 +10,71 @@ html, body {
     width:100%;
 }
 
+#header {
+    padding:0.5em 0 1em 0;
+}
+
+#header .matte {
+    padding:0.5em;
+}
+
+.panel_menu {
+    display:none;
+}
+
+#picture_frame {
+    padding:0;
+    border:0;
+}
+
 #footer {
     width:100%;
+}
+
+.item img#showcase {
+    margin-top:2em;
+}
+
+
+.item .cntrl {
+    top:-1em;
+    height:3em;
+    line-height:3em;
+}
+
+.item .cntrl#prev_cntrl {
+    left:0;
+}
+
+.item .cntrl.right {
+    right:0;
+}
+
+#indicators {
+    position:absolute;
+    left:20%;
+    top:0;
+    margin:0;
+    width:60%;
+}
+
+.indicator {
+    margin:2px 3px 0 0;
+    width:6px;
+}
+
+#img_caption h3 {
+    padding:0 0 0.35em 0;
+}
+
+#header h1 {
+    font-size:2em;
+}
+
+#img_caption {
+    line-height:1.25em;
+}
+
+.cntrl.active.sparkle {
 }
 

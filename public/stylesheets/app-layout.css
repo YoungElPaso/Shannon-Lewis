@@ -10,7 +10,6 @@
 }
 
 html {
-    height:100%; /* baf */
 }
 
 html, body {
@@ -19,51 +18,52 @@ html, body {
 }
 
 body {
-    height:100%; /* baf */
 }
 
 #container {
     position:relative;
     margin:0 auto;
     width: 90%;
-    max-width:900px;
-    min-height:100%; /* baf */
+    max-width:800px;
     text-align:left;
 }
 
 #header {
-    padding:1em 0 0 0;
-    height: 6em;
+    padding:1em 0 1em 0;
+}
+
+#header .matte {
+    padding:0.5em 0;
 }
 
 #footer {
-    position:absolute; /* bottom anchord footer (baf)*/
-    bottom:0; /* baf */
-    /*width:100%; /* baf */
-    height:4em;
     padding:0.5em;
 }
 
 #picture_frame {
+    clear:both;
     margin:0;
-    height:30em;
-    background:#555;
+    padding:1em 0 0 0;
+    border:2px #aaa solid;
+    background:#fff;
 }
 
 .panel_content {
-    background:#888;
+
 }
 
 #indicators {
-    float:left;
-    clear:both;
-    width:100%;
-    border:2px #foo solid;
+    margin:1em auto;
+    width:80%;
+    text-align:center;
 }
 
 .indicator {
-    float:left;
-    width:10%;
+    display:inline-block;
+    width:9px;
+    height:9px;
+    margin:0 5px 0 0;
+    opacity:0.3;
 }
 
 .item {
@@ -73,31 +73,50 @@ body {
 }
 
 .item .cntrl {
-    float:left;
-    background:#efefef;
-    width:3em;
+    position:absolute;
+    top:1em;
+    width:4em;
     height:3em;
+    background:#fff;
     line-height:3em;
     text-align:center;
+    cursor:pointer;
+    font-weight:bold;
+    opacity:0.15;
+}
+
+.item .cntrl#prev_cntrl {
+    left:1em;
 }
 
 .item .cntrl.right {
-    float:right;
+    right:1em;
+}
+
+.item .cntrl:hover {
+
+}
+
+.item .cntrl.active {
+    opacity:0.5;
 }
 
 .item #loading_mask {
     position:absolute;
     left:0;
-    top:0;
+    top:8em;
     width:100%;
-    height:100%;
-    background:#fff;
+    height:3em;
     display:none;
+    color:#fff;
+    text-align:center;
+    line-height:3em;
+    opacity:0.77;
 }
 
 .item img#showcase {
-    width:100%;
-/*    height:50%;*/
+    margin:0 0 0 2%;
+    width:96%;
 }
 
 .item #img_caption {
@@ -105,12 +124,13 @@ body {
 }
 
 #contact {
+    position:absolute;
+    top:2em;
     margin:3em 0 0 0;
-    height:10em;
+    width:100%;
 }
 
 .footer_spacer {
-    margin:0 0 5em 0; /* bottom margin matches height of footer */
 }
 
 .matte {
@@ -136,7 +156,15 @@ ul, li {
 }
 
 
-.sparkle {
- background:#ff0;
+.clear {
+    clear:both;
+}
+
+.indicator.sparkle, .cntrl.active.sparkle {
+    opacity:0.9 !important;
+}
+
+.cntrl.active.sparkle {
+    opacity:0.7 !important;
 }
 
