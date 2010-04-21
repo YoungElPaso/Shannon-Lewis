@@ -153,6 +153,7 @@
             $('#grid_0').addClass('sparkle');
             showCase.bind('load', function(){ //create fx for loading an image - ie some kinda wipe, in ext, this would be put in onrender
               //console.log('loaded an image:' + showCase.attr('src'));
+              showCase.show(); //initially hidden, but then shown, only applies to first load
               loadingMask.hide();
             });
             makeCntrls();
