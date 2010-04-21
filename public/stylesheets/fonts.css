@@ -26,6 +26,10 @@ p, span, strong, ul, li, .cntrl {
     font-size:1em;
 }
 
+p {
+    line-height:1.5em;
+}
+
 a:link, a:active, a:hover, a:visited {
     text-decoration:none;
 }
@@ -41,6 +45,10 @@ a:hover {
 
 #img_caption h3 {
     font-family: 'century schoolbook l', baskerville, palatino, georgia, serif;
+}
+
+#footer p {
+    font-size:0.85em;
 }
 
 .cntrl {

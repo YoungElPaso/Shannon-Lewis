@@ -11,18 +11,28 @@ h1, h2, h3, h4, h5, h6, h7, p, span, strong {
     color: #040506;
 }
 
+h2, .closer span {
+    color:#e9ddaf;
+}
+
 a:link, a:active, a:hover, a:visited {
     color: #338000;
+}
+
+#footer h3, #footer p {
+    color:#777;
 }
 
 #header, #footer {
 }
 
-#contact {
+div.border_compensator {
+    -webkit-box-shadow: 0 2px 6px #555;
+    background:#1a1a1a;
 }
 
-#contact h2, #contact p {
-
+#contact p, #biography p {
+    color:#f4f4f4;
 }
 
 .indicator {
@@ -31,5 +41,24 @@ a:link, a:active, a:hover, a:visited {
 
 .iphone .indicator {
     background: url(../images/theme/dots_small.png) 0 3px no-repeat;
+}
+
+#loading_mask{
+    background:#fff url(../images/theme/ajax-loader.gif) 50% 70% no-repeat;
+}
+
+.item .cntrl {
+    text-indent:-3333px;
+    background: #f4f4f4 url(../images/theme/left_arrow.png) 45% 50% no-repeat !important;
+}
+
+.item .cntrl.right {
+    background: #f4f4f4 url(../images/theme/right_arrow.png) 55% 50% no-repeat !important;
+}
+
+.iphone .item .cntrl, .iphone .item .cntrl.right {
+    text-indent:0 !important;
+    text-shadow: #aaa 1px 1px 1px;
+    background: url(../images/theme/tool-gradient.png) 0 -26px repeat-x !important;
 }
 
