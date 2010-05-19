@@ -1,5 +1,13 @@
     // <![CDATA[
+
+        var jQT = new $.jQTouch({
+//          initializeTouch: 'body, div.touch, a ',
+          touchSelector: [ '#swipe_test' ]
+        });
+
+
       $(document).ready(function(){
+
         //first thing check platform and load some files if necessary
 
           // create panel_content_ct and ajax call for images
@@ -11,6 +19,7 @@
           loadingMask = null;
           indicators = null;
           caption = null;
+          imgTitle = null;
           browserPlatform = 'desktop';
 
 
@@ -104,7 +113,8 @@
                 '<div id="img_grid"></div>' +
                 '</div>' +
                 '<div id="loading_mask">loading</div>' +
-                '<img id="showcase" class="img" src="" />';
+                '<h3 id="img_title"></h3>' +
+                '<div id="img_swiper"><img id="showcase" class="img" src="" /></div>';
             var indicatorsTemplate = '<div class="indicator">&nbsp;</div>'; //an indicator box
             for(i=1; i < imgData.length; i++){
                 indicatorsTemplate = indicatorsTemplate + '<div class="indicator">&nbsp;</div>';
@@ -127,6 +137,7 @@
                         $('#controls').animate({opacity:0.1}, 1500);
                         $('#controls').bind('mouseenter', function(){
                             $('#controls').animate({opacity:1}, 300);
+                            $('#img_title').hide();
                         });
                         $('#controls').bind('mouseleave', function(e){
                             $('#controls').animate({opacity:0.1}, 300);
@@ -138,6 +149,7 @@
             //load first image, caption etc
             showCase = $('#showcase'); //establish values for showCase & caption
             caption = $('#img_caption');
+            imgTitle = $('#img_title');
             loadingMask = $('#loading_mask');
             indicators = inds;
             inds.bind('checkData', function(event, d){ //bind custom event so when data is loaded, we do something
@@ -156,6 +168,10 @@
               showCase.show(); //initially hidden, but then shown, only applies to first load
               loadingMask.hide();
             });
+            showCase.bind('mouseenter', function(){
+              imgTitle.show();
+              imgTitle.delay('6000').fadeOut();
+            });
             makeCntrls();
           }
 
@@ -167,10 +183,11 @@
                 var imgUrl = imgData[img].url_m;
             };
             loadingMask.show();//show the loading mask until the image is done loading
-            showCase.attr('src', imgUrl); //set the src for the showcase
+            showCase.attr('src', imgUrl).attr('alt', imgData[img].title); //set the src for the showcase
             currImage = img; //establish currImage as whatever is fed into loadImage
             //showCase.attr('src', imgData[img].src);//set the src for the showcase
             //caption.text(imgData[img].caption); //set the caption for the given img
+            imgTitle.text(imgData[img].title); //show the title briefly, then fade it out?
             caption.html("<h3>" + imgData[img].title + "</h3>" + imgData[img].description._content); //set the caption for the given img
             indicators.trigger('checkData', [img]);//highlight the relevant div showing which img in the series is loaded, checks all indicators at once
           }
@@ -251,6 +268,34 @@
           //  514-731-0060 x 237 - 1800-206-7218
 
         //
+
+        //JQTouch stuff
+        //$('#showcase').live('swipe tap', function(event, info){console.log(event);});
+
+        $(function(){//swipe test
+            $('#swipe_test').bind("swipe", function(event, info){
+                //console.log(info.direction);
+                if(info.direction == "left") {
+                    doCntrls('prev_cntrl');
+                }else{
+                    doCntrls('next_cntrl');
+                }
+            });
+        });
+
+//        $('body').tap(function(){
+//           alert('foo');
+//        });
+
+//        $(function(){ tap test
+//            $('#header').tap( function(e){
+//                console.log('Tapped!');
+//            });
+//        });
+
+        //
+
+
         doAjax();
       });
     // ]]>
