@@ -166,12 +166,6 @@ body {
     opacity:0.55;
 }
 
-#swipe_test {
-    width:100%;
-    height:30px;
-    background:#aaa;
-}
-
 .item img#showcase {
     margin:0 0 0 2%;
     width:96%;

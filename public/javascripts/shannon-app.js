@@ -114,7 +114,7 @@
                 '</div>' +
                 '<div id="loading_mask">loading</div>' +
                 '<h3 id="img_title"></h3>' +
-                '<div id="img_swiper"><img id="showcase" class="img" src="" /></div>';
+                '<div id="swipe_test"></div><img id="showcase" class="img" src="" />';
             var indicatorsTemplate = '<div class="indicator">&nbsp;</div>'; //an indicator box
             for(i=1; i < imgData.length; i++){
                 indicatorsTemplate = indicatorsTemplate + '<div class="indicator">&nbsp;</div>';
@@ -273,12 +273,17 @@
         //$('#showcase').live('swipe tap', function(event, info){console.log(event);});
 
         $(function(){//swipe test
-            $('#swipe_test').bind("swipe", function(event, info){
+            $('#swipe_test').live("touchmove", function(event){
+                //event.preventDefault();
+            });
+            $('#swipe_test').live("swipe", function(event, info){
                 //console.log(info.direction);
                 if(info.direction == "left") {
-                    doCntrls('prev_cntrl');
-                }else{
+                    //event.preventDefault();
                     doCntrls('next_cntrl');
+                }else{
+                    //event.preventDefault();
+                    doCntrls('prev_cntrl');
                 }
             });
         });
