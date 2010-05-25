@@ -1,9 +1,9 @@
     // <![CDATA[
 
-        var jQT = new $.jQTouch({
+//        var jQT = new $.jQTouch({
 //          initializeTouch: 'body, div.touch, a ',
-          touchSelector: [ '#swipe_test' ]
-        });
+//          touchSelector: [ '#swipe_test' ]
+//        });
 
 
       $(document).ready(function(){
@@ -273,19 +273,26 @@
         //$('#showcase').live('swipe tap', function(event, info){console.log(event);});
 
         $(function(){//swipe test
-            $('#swipe_test').live("touchmove", function(event){
-                //event.preventDefault();
-            });
-            $('#swipe_test').live("swipe", function(event, info){
-                //console.log(info.direction);
-                if(info.direction == "left") {
-                    //event.preventDefault();
-                    doCntrls('next_cntrl');
-                }else{
-                    //event.preventDefault();
-                    doCntrls('prev_cntrl');
-                }
-            });
+
+           $('#header').bind('touchmove', function(event) {
+            event.preventDefault();
+            var ts = event.targetTouches;
+            console.log(ts);
+            //var touch = event.touches[0];
+            //console.log("Touch x:" + touch.pageX + ", y:" + touch.pageY);
+        }, false);
+
+
+//            $('#swipe_test').live("swipe", function(event, info){
+//                //console.log(info.direction);
+//                if(info.direction == "left") {
+//                    //event.preventDefault();
+//                    doCntrls('next_cntrl');
+//                }else{
+//                    //event.preventDefault();
+//                    doCntrls('prev_cntrl');
+//                }
+//            });
         });
 
 //        $('body').tap(function(){

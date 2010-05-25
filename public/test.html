@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes"> <!-- means that can be added to homescreen on iphone and not open a safari window, but rather mobile webkit -->
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; user-scalable=0;"> <!-- sets width to iphone width, whatever that is, scale to 1, and no user scaling -->
+    <title>Shannon Tamara Lewis Fine Art & Illustration</title>
+    <script src="javascripts/jquery-min.js" type="text/javascript" language="javascript" charset="utf-8"></script>
+    <script type="text/javascript" language="javascript" charset="utf-8">
+      $(document).ready(function(){
+        var c = $('body');
+        c.bind('touchstart', doTouch);
+
+        var iDelta = $('#delta');
+        var iStartX = $('#startX');
+        var iClientX = $('#clientX');
+
+        function doTouch(e){
+          var t = $(e.target);
+          //console.log(event.target);
+          if (event){
+            //console.log(event);
+            var startX = event.targetTouches[0].clientX,
+            startY = event.targetTouches[0].clientY,
+            deltaX = 0,
+            deltaY = 0;
+            t.bind('touchmove', function(e){
+              e.preventDefault();
+              updateChanges();
+              //console.log(event.targetTouches[0].clientX);
+              //$t.text(deltaX);
+              //$t.css({'background-color': '#ff0', 'left': deltaX + 'px'});
+              //console.log($t[0]);
+              var newX = event.targetTouches[0].clientX + deltaX;
+              $('#container')[0].style.webkitTransform = 'translate(' + deltaX + 'px, ' + 0 + 'px)';
+              iDelta.text('deltaX:' + deltaX);
+              iStartX.text('startX:' + startX);
+              iClientX.text('clientX:' + event.targetTouches[0].clientX);
+            });
+          };
+
+          function updateChanges(){
+            //var first = event.targetTouches[0] || null;
+            deltaX = event.targetTouches[0].clientX - startX;
+            deltaY = event.targetTouches[0].clientY - startY;
+            //deltaT = (new Date).getTime() - startTime;
+          };
+
+        };
+
+      });
+    </script>
+    <style type="text/css">
+      #container {
+        position:absolute;
+        width:200px;
+        background:#f00;
+      }
+    </style>
+  </head>
+  <body>
+    <h3 id="clientX">clientX:</h3>
+    <h3 id="startX">startX:</h3>
+    <h3 id="delta">delta:</h3>
+    <div id="container">
+      <h1>Foo</h1>
+    </div>
+  </body>
+</html>
+
