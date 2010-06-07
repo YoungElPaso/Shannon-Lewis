@@ -12,15 +12,17 @@
         var iStartX = $('#startX');
         var iDelta = $('#delta');
         var t = $('#container');
+        var tPad = $('#touch_pad');
+        var b = $('body');
         var f = $('#follower');
-        t.bind('touchstart', doTouchStart);
-        t.bind('touchmove', doTouchMove);
-        var firstX = null, firstY = null, cX = null, cY = null;
+        tPad.bind('touchstart', doTouchStart);
+        tPad.bind('touchmove', doTouchMove);
+        tPad.bind('touchend', doTouchEnd);
+        var firstX = null, firstY= null, cX = null, cY = null, lastX = '0px';
 
         function doTouchStart(e){
           firstX = event.targetTouches[0].clientX;
           firstY = event.targetTouches[0].clientY;
-          //console.log($(event.target).css('left'));
         }
 
         function doTouchMove(e){
@@ -30,15 +32,25 @@
           var first =  event.targetTouches[0]; //this is the first, of possibly many touches on the target
           var currX = first.clientX;
           var currY = first.clientY;
-          var deltaX = (currX - firstX) + 75; //include offsets to 1/4 dimensions of box to center it
-          var deltaY = (currY - firstY) - 50;
-          //var deltaX = (currX - firstX) + 0; //include offsets to 1/4 dimensions of box to center it
-          //var deltaY = (currY - firstY) - 0;
+          //var deltaX = (currX - firstX) + 75; //include offsets to 1/4 dimensions of box to center it
+          //var deltaY = (currY - firstY) - 50;
+          var deltaX = (currX - firstX) + 0; //no offsets
+          var deltaY = (currY - firstY) - 0;
           iStartX.text(firstX);
           iDelta.text(deltaX);
-          f[0].style.webkitTransform = 'translate(' + currX + 'px,' + currY + 'px)';
-          t[0].style.webkitTransform = 'translate(' + deltaX + 'px,' + deltaY + 'px)';
-        };
+          var oogabooga = parseInt(lastX.split('p')[0]);
+          oogabooga = oogabooga + parseInt(deltaX);
+          f[0].style.webkitTransform = 'translate(' + oogabooga + currX + 'px,' + currY + 'px)';
+          t[0].style.webkitTransform = 'translate(' + oogabooga + 'px,' + 0 + 'px)';
+          console.log(t[0].style.webkitTransform);
+        }
+
+        function doTouchEnd(e){
+          var endX = t[0].style.webkitTransform.split('(')[1].split(',')[0]; //where the last transform is
+          lastX = endX;
+          console.log('end touch @ ' + lastX);
+          //t.css({left:lastX});
+        }
 
       });
     </script>
@@ -47,12 +59,24 @@
         background:#0f0;
       }
 
+      #touch_pad {
+        position:absolute;
+        left:0;
+        top:0;
+        width:100%;
+        height:100%;
+        background:#00f;
+        opacity:0.3;
+        z-index:999;
+      }
+
       #container {
         position:absolute;
         width:300px;
         height:200px;
         background:#f00;
       }
+
       #follower {
         position:absolute;
         width:2px;
@@ -63,6 +87,7 @@
     </style>
   </head>
   <body>
+    <div id="touch_pad"></div>
     <div id="follower"></div>
     <h3 id="clientX">clientX:</h3>
     <h3 id="startX">startX:</h3>
