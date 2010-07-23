@@ -195,7 +195,7 @@ body {
     padding:0 0 0.75em 0;
 }
 
-#contact, #biography {
+#contact, #biography, #commissions {
     position:absolute;
     top:8em;
     padding:4em 0 0 0;
@@ -206,6 +206,10 @@ body {
 
 #biography {
     z-index:300;
+}
+
+#commissions {
+    z-index:301;
 }
 
 div.border_compensator {

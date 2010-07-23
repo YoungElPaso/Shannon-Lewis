@@ -14,7 +14,7 @@
           firstImage = 0;
           currImage = null;
           imgData = null;
-          maxImages = 20;
+          maxImages = 29;
           showCase = null;
           loadingMask = null;
           indicators = null;
@@ -58,6 +58,9 @@
         var contact = $('#contact');
         var bioBtn = $('#bio_btn');
         var biography = $('#biography');
+        var comBtn = $('#com_btn');
+        var commissions = $('#commissions');
+        commissions.hide();
         contact.hide();
         biography.hide();
         conBtn.click(function(e){
@@ -67,6 +70,10 @@
         bioBtn.click(function(e){
             openPanel(biography);
             e.preventDefault();
+        });
+        comBtn.click(function(e){
+           openPanel(commissions);
+           e.preventDefault();
         });
 
         function openPanel(element){
@@ -114,7 +121,7 @@
                 '</div>' +
                 '<div id="loading_mask">loading</div>' +
                 '<h3 id="img_title"></h3>' +
-                '<div id="swipe_test"></div><img id="showcase" class="img" src="" />';
+                '<div id="swipe_test"></div><img id="showcase" class="img" src="images/theme/empty.gif" />';
             var indicatorsTemplate = '<div class="indicator">&nbsp;</div>'; //an indicator box
             for(i=1; i < imgData.length; i++){
                 indicatorsTemplate = indicatorsTemplate + '<div class="indicator">&nbsp;</div>';
@@ -179,11 +186,18 @@
           function loadImage(img, showCase, caption){
             if(browserPlatform == 'desktop'){
                 var imgUrl = imgData[img].url_o;
+                //console.log(imgData[img]);
+                if(!imgUrl){ //some images dont seem to have a url_o
+                    //console.log('foo');
+                    imgUrl = imgData[img].url_m;
+                }
             }else{
                 var imgUrl = imgData[img].url_m;
             };
             loadingMask.show();//show the loading mask until the image is done loading
-            showCase.attr('src', imgUrl).attr('alt', imgData[img].title); //set the src for the showcase
+            //console.log(showCase);
+            showCase.attr('src', imgUrl);
+            showCase.attr('alt', imgData[img].title); //set the src for the showcase
             currImage = img; //establish currImage as whatever is fed into loadImage
             //showCase.attr('src', imgData[img].src);//set the src for the showcase
             //caption.text(imgData[img].caption); //set the caption for the given img

@@ -31,7 +31,7 @@ div.border_compensator {
     background:#1a1a1a;
 }
 
-#contact p, #biography p {
+#contact p, #biography p, .panel p { /* added a more generic rule here, for .panel, why bother with all the ids? July 22 '10'*/
     color:#f4f4f4;
 }
 
